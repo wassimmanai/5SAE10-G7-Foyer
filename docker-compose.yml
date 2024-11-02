@@ -17,8 +17,8 @@ services:
   app:
     depends_on:
       - mysqldb
-  #  build: ./
-    image: wassimmanai/achat-image:1.0.0
+   # build: ./
+    image: wassimmanai/achat-image:1.0.1
     restart: on-failure
     ports:
       - "8089:8089"
