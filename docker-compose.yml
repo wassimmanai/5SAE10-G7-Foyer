@@ -8,7 +8,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: intership
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db:/var/lib/mysql
     networks:
@@ -18,7 +18,7 @@ services:
     depends_on:
       - mysqldb
    # build: ./
-    image: wassimmanai/achat-image:1.0.5
+    image: wassimmanai/achat-image:1.0.6
     restart: on-failure
     ports:
       - "8089:8089"
