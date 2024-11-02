@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: intership
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.2  # Specify the desired fixed IP address
+  app:
+    depends_on:
+      - mysqldb
+    build: ./
+   ## image: islemamor01/intership:latest
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    volumes:
+      - .m2:/root/.m2
+
+    stdin_open: true
+    tty: true
+    networks:
+      mynetwork:
+        ipv4_address: 172.18.0.3  # Specify a different fixed IP address
+
+volumes:
+  db:
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
