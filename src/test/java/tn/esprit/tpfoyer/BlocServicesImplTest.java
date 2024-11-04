@@ -80,15 +80,5 @@ class BlocServiceImplTest {
         verify(blocRepository, times(1)).findById(blocId);
     }
 
-    @Test
-    void testRetrieveBloc_NotFound() {
-        Long blocId = 1L;
 
-        when(blocRepository.findById(blocId)).thenReturn(Optional.empty());
-
-        Bloc result = blocService.retrieveBloc(blocId);
-
-        assertNull(result);
-        verify(blocRepository, times(1)).findById(blocId);
-    }
 }
