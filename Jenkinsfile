@@ -71,7 +71,7 @@ pipeline {
 
         stage('Grafana') {
                    steps {
-                       echo 'Grafana is available at: http://http://192.168.33.11:3000'; // Replace with your actual Grafana URL
+                       echo 'Grafana is available at: http://192.168.33.11:3000'; // Replace with your actual Grafana URL
                    }
                }
 
