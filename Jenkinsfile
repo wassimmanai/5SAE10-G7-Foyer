@@ -48,7 +48,7 @@ pipeline {
         stage('Image') {
             steps {
                 echo 'Création Image : ';
-                sh 'docker build -t wassimmanai/achat-image:1.0.8 .';
+                sh 'docker build -t wassimmanai/achat-image:1.0.9 .';
             }
         }
 
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 echo 'Push Image to dockerhub : ';
                 sh 'docker login -u wassimmanai -p 201JMT5633';
-                sh 'docker push wassimmanai/achat-image:1.0.8';
+                sh 'docker push wassimmanai/achat-image:1.0.9';
             }
         }
 
@@ -68,6 +68,12 @@ pipeline {
                 sh 'docker compose up -d';
             }
         }
+
+        stage('Grafana') {
+                   steps {
+                       echo 'Grafana is available at: http://http://192.168.33.11:3000'; // Replace with your actual Grafana URL
+                   }
+               }
 
     }
 }
