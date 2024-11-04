@@ -25,6 +25,23 @@ pipeline {
             }
         }
 
+        stage('Run Unit Tests') {
+                                    steps {
+                                        echo 'Running Unit Tests: '
+                                        dir('gestion-station-ski') {
+                                            sh 'mvn test -X'
+                                        }
+                                    }
+                                }
+
+        stage('Publish Test Results') {
+                                            steps {
+                                                echo 'Publishing Test Results: '
+                                                junit '**/target/surefire-reports/*.xml'
+                                            }
+                                        }
+
+
         stage('SonarQube') {
             steps {
                 echo 'Analyse de la Qualité du Code : ';
@@ -74,6 +91,9 @@ pipeline {
                        echo 'Grafana is available at: http://192.168.33.11:3000'; // Replace with your actual Grafana URL
                    }
                }
+
+
+
 
     }
 }
