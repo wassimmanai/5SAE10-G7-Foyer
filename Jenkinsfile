@@ -28,9 +28,9 @@ pipeline {
         stage('Run Unit Tests') {
                                     steps {
                                         echo 'Running Unit Tests: '
-                                        dir('gestion-station-ski') {
+
                                             sh 'mvn test -X'
-                                        }
+
                                     }
                                 }
 
