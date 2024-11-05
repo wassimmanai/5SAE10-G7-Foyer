@@ -48,6 +48,13 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Sonarqubeagent47*';
             }
         }
+        stage("Quality Gate") {
+                                   steps {
+                                       timeout(time: 2, unit: 'MINUTES') {
+                                           waitForQualityGate abortPipeline: true
+                                       }
+                                   }
+                               }
 
         stage('Maven Package') {
             steps {
