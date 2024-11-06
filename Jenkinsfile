@@ -104,8 +104,8 @@ pipeline {
                         echo 'Testing if metrics are available in Grafana...'
                         // You can use curl to hit your metrics endpoint
                         echo 'curl -f http://192.168.33.11:8089/tpfoyer/actuator/prometheus'
-                    }
-
+                           }
+                               }
 
 
 
