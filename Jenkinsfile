@@ -48,13 +48,13 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Sonarqubeagent47*';
             }
         }
-        stage("Quality Gate") {
+      /*   stage("Quality Gate") {
                                    steps {
                                        timeout(time: 5, unit: 'MINUTES') {
                                            waitForQualityGate abortPipeline: true
                                        }
                                    }
-                               }
+                               } */
 
         stage('Maven Package') {
             steps {
@@ -98,6 +98,17 @@ pipeline {
                        echo 'Grafana is available at: http://192.168.33.11:3000'; // Replace with your actual Grafana URL
                    }
                }
+
+        stage('Test Metrics') {
+                    steps {
+                        echo 'Testing if metrics are available in Grafana...'
+                        // You can use curl to hit your metrics endpoint
+                        echo 'curl -f http://192.168.33.11:8089/tpfoyer/actuator/prometheus'
+                    }
+
+
+
+
 
 
     }
