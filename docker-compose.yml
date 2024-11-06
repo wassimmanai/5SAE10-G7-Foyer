@@ -34,7 +34,7 @@ services:
   app-angular:
     depends_on:
       - app
-    build: ./
+    build: ./foyer
     ports:
       - "4200:4200"
     restart: on-failure
