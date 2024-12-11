@@ -72,7 +72,7 @@ pipeline {
         stage('Image') {
             steps {
                 echo 'Création Image : ';
-                sh 'docker build -t louaybensoussiaa/achat-image:1.0.9 .';
+                sh 'docker build -t wassimmanai/achat-image:1.0.9 .';
             }
         }
 
@@ -80,8 +80,8 @@ pipeline {
         stage('Dockerhub') {
             steps {
                 echo 'Push Image to dockerhub : ';
-                sh 'docker login -u louaybensoussiaa -p 201Jmt3816';
-                sh 'docker push louaybensoussiaa/achat-image:1.0.9';
+                sh 'docker login -u wassimmanai -p 201JMT5633';
+                sh 'docker push wassimmanai/achat-image:1.0.9';
             }
         }
 
@@ -117,10 +117,10 @@ pipeline {
             echo 'Pipeline execution completed!'
         }
         success {
-            mail to: 'bensoussia.louay@esprit.tn',
+            mail to: 'wassim.manai@esprit.tn',
                 subject: "Succès du Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-                Salut Louay Ben Soussia,
+                Salut wassim manai,
 
                 Le build du projet '${env.JOB_NAME}' s'est terminé avec succès.
 
@@ -137,10 +137,10 @@ pipeline {
                 """
         }
         failure {
-            mail to: 'bensoussia.louay@esprit.tn',
+            mail to: 'wassim.manai@esprit.tn',
                 subject: "Échec du Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-                Salut Louay Ben Soussia,
+                Salut wassim manai,
 
                 Le build du projet '${env.JOB_NAME}' s'est terminé avec le statut : FAILURE.
 
