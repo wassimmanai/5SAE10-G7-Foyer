@@ -72,7 +72,7 @@ pipeline {
         stage('Image') {
             steps {
                 echo 'Création Image : ';
-                sh 'docker build -t louaybensoussiaa/achat-image:1.0.9 .';
+                sh 'docker build -t wassimmanai/achat-image:1.0.9 .';
             }
         }
 
@@ -80,8 +80,8 @@ pipeline {
         stage('Dockerhub') {
             steps {
                 echo 'Push Image to dockerhub : ';
-                sh 'docker login -u louaybensoussiaa -p 201Jmt3816';
-                sh 'docker push louaybensoussiaa/achat-image:1.0.9';
+                sh 'docker login -u wassimmanai -p 201JMT5633';
+                sh 'docker push wassimmanai/achat-image:1.0.9';
             }
         }
 
