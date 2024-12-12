@@ -117,10 +117,10 @@ pipeline {
             echo 'Pipeline execution completed!'
         }
         success {
-            mail to: 'wassim.manai@esprit.tn',
+            mail to: 'bensoussia.louay@esprit.tn',
                 subject: "Succès du Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-                Salut wassim manai,
+                Salut Louay Ben Soussia,
 
                 Le build du projet '${env.JOB_NAME}' s'est terminé avec succès.
 
@@ -137,10 +137,10 @@ pipeline {
                 """
         }
         failure {
-            mail to: 'wassim.manai@esprit.tn',
+            mail to: 'bensoussia.louay@esprit.tn',
                 subject: "Échec du Build: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-                Salut wassim manai,
+                Salut Louay Ben Soussia,
 
                 Le build du projet '${env.JOB_NAME}' s'est terminé avec le statut : FAILURE.
 
